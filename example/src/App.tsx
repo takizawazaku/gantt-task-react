@@ -24,14 +24,9 @@ const App = () => {
     if (task.project) {
       const [start, end] = getStartEndDateForProject(newTasks, task.project);
       const project = newTasks[newTasks.findIndex(t => t.id === task.project)];
-      if (
-        project.start.getTime() !== start.getTime() ||
-        project.end.getTime() !== end.getTime()
-      ) {
+      if (project.start.getTime() !== start.getTime() || project.end.getTime() !== end.getTime()) {
         const changedProject = { ...project, start, end };
-        newTasks = newTasks.map(t =>
-          t.id === task.project ? changedProject : t
-        );
+        newTasks = newTasks.map(t => (t.id === task.project ? changedProject : t));
       }
     }
     setTasks(newTasks);
@@ -74,7 +69,8 @@ const App = () => {
         onViewListChange={setIsChecked}
         isChecked={isChecked}
       />
-      <h3>Gantt With Unlimited Height</h3>
+      <h1>GE-BPO工程管理</h1>
+      <h3>さぶたいとる</h3>
       <Gantt
         tasks={tasks}
         viewMode={view}
@@ -86,21 +82,6 @@ const App = () => {
         onSelect={handleSelect}
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
-        columnWidth={columnWidth}
-      />
-      <h3>Gantt With Limited Height</h3>
-      <Gantt
-        tasks={tasks}
-        viewMode={view}
-        onDateChange={handleTaskChange}
-        onDelete={handleTaskDelete}
-        onProgressChange={handleProgressChange}
-        onDoubleClick={handleDblClick}
-        onClick={handleClick}
-        onSelect={handleSelect}
-        onExpanderClick={handleExpanderClick}
-        listCellWidth={isChecked ? "155px" : ""}
-        ganttHeight={300}
         columnWidth={columnWidth}
       />
     </div>
