@@ -69,7 +69,7 @@ const App = () => {
         onViewListChange={setIsChecked}
         isChecked={isChecked}
       />
-      <h1>GE-BPO工程管理</h1>
+      <h1>ガントチャートさんぷる</h1>
       <h3>さぶたいとる</h3>
       <Gantt
         tasks={tasks}

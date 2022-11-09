@@ -6,62 +6,36 @@ type ViewSwitcherProps = {
   onViewListChange: (isChecked: boolean) => void;
   onViewModeChange: (viewMode: ViewMode) => void;
 };
-export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
-  onViewModeChange,
-  onViewListChange,
-  isChecked,
-}) => {
+export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({ onViewModeChange, onViewListChange, isChecked }) => {
   return (
     <div className="ViewContainer">
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Hour)}
-      >
-        Hour
+      <button className="Button" onClick={() => onViewModeChange(ViewMode.Hour)}>
+        1時間
       </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.QuarterDay)}
-      >
-        Quarter of Day
+      <button className="Button" onClick={() => onViewModeChange(ViewMode.QuarterDay)}>
+        4時間
       </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.HalfDay)}
-      >
-        Half of Day
+      <button className="Button" onClick={() => onViewModeChange(ViewMode.HalfDay)}>
+        半日
       </button>
       <button className="Button" onClick={() => onViewModeChange(ViewMode.Day)}>
-        Day
+        日
       </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Week)}
-      >
-        Week
+      <button className="Button" onClick={() => onViewModeChange(ViewMode.Week)}>
+        週
       </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Month)}
-      >
-        Month
+      <button className="Button" onClick={() => onViewModeChange(ViewMode.Month)}>
+        月
       </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Year)}
-      >
-        Year
+      <button className="Button" onClick={() => onViewModeChange(ViewMode.Year)}>
+        年
       </button>
       <div className="Switch">
         <label className="Switch_Toggle">
-          <input
-            type="checkbox"
-            defaultChecked={isChecked}
-            onClick={() => onViewListChange(!isChecked)}
-          />
+          <input type="checkbox" defaultChecked={isChecked} onClick={() => onViewListChange(!isChecked)} />
           <span className="Slider" />
         </label>
-        Show Task List
+        タスクリストを表示
       </div>
     </div>
   );
